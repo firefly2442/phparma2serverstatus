@@ -75,6 +75,12 @@ foreach ($results as $key => $server)
 					echo "<a href='http://www.hostip.info'>";
 					echo "<img src='http://api.hostip.info/flag.php?ip=". $server['gq_address'] ."' alt='Country' title='Country' /></a>\n";
 				}
+				//server OS (Windows/Linux)
+				if ($server['platform'] == "win") {
+					echo "<img src='images/windows_logo.jpg' alt='Server Runs Windows' title='Server Runs Windows' />\n";
+				} else {
+					echo "<img src='images/linux_logo.jpg' alt='Server Runs Linux' title='Server Runs Linux' />\n";
+				}
 			echo "</div>\n";
 
 			//Server name
