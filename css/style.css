@@ -18,6 +18,10 @@ a:visited {color:#0066FF}
 a:active  {color:#000099}
 a:hover   {color:#000099}
 
+.like-link {
+	color: #0066FF;
+}
+
 /*CSS Table*/
 .div-table {
 	display: table;
