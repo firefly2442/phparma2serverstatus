@@ -8,10 +8,11 @@ require_once 'GameQ.php';
 // Define your servers,
 // see list.php for all supported games and identifiers.
 $servers = array(
-    'server 1' => array('quake3', '194.109.69.61'),
-    'server 2' => array('cssource', '194.109.69.51', 27015),
-    'server 3' => array('bf2142', '194.109.69.21'),
-	'server 4' => array('ts3', 'voice.planetteamspeak.com')
+	'Alphasquad US1' => array('armedassault2oa', '209.190.105.50', 2302),
+	'Alphasquad US2' => array('armedassault2oa', '209.190.105.50', 2312),
+	'Kellys Heroes' => array('armedassault2oa', '209.190.105.50', 2302),
+	'United Operations 1' => array('armedassault2oa', '216.155.140.30', 2342),
+	'United Operations 2' => array('armedassault2oa', '216.155.140.30', 2302)
 );
 
 
