@@ -19,21 +19,6 @@ require_once("config.inc.php");
 	<script language="Javascript">
 	$(document).ready(function() {
 
-		//hide all player lists by default
-		$('.hide-players').hide();
-
-		//hide all mods by default
-		$('.hide-mods').hide();
-
-		$(".players").click(function() {
-			$('.hide-players',this).toggle();
-		});
-
-		$(".mods").click(function() {
-			$('.hide-mods',this).toggle();
-		});
-
-
 		//use asynchronous AJAX call via JQuery to query the servers in the backend
 		//this way it's not blocking the loading of the page
 		var datastring = 'query-servers=true';
@@ -44,6 +29,20 @@ require_once("config.inc.php");
 			success: function(data) {
 				//show information in our div
 				$('.server-data').show().html(data);
+
+				//hide all player lists by default
+				$('.hide-players').hide();
+
+				//hide all mods by default
+				$('.hide-mods').hide();
+
+				$(".players").click(function() {
+					$('.hide-players',this).toggle();
+				});
+
+				$(".mods").click(function() {
+					$('.hide-mods',this).toggle();
+				});
 			}
 		});
 
