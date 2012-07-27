@@ -47,6 +47,8 @@ if (isset($_POST['query-servers']) && $_POST['query-servers'] == true)
 
 				//Server name
 				echo "<div class='div-table-col div-right'>\n";
+					//do regex on hostname to make a link for sixupdater
+					$server['gq_hostname'] = preg_replace('@(sixupdater://([\w-.]+)+(:\d+)?(/([\w/_.-]*(\?\S+)?)?)?)@', '<a href="$1">$1</a>', $server['gq_hostname']);
 					echo $server['gq_hostname'];
 				echo "</div>\n";
 			echo "</div>\n";
