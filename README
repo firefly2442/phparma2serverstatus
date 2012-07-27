@@ -7,6 +7,7 @@ such as the map that is running, connected players, and other information.
 
 Setup:
 
+Change directory (cd) into the phparma2serverstatus folder.
 Run: git submodule update --init
 
 This will grab the GameQ dependency submodule.
