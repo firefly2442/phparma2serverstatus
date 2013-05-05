@@ -3,6 +3,11 @@
 //change this to reflect the servers that you want to query
 $servers = array(
 	array(
+		'id' => 'AlphaSquad Arma 3',
+		'type' => 'armedassault3',
+		'host' => '209.190.105.50:2302',
+	),
+	array(
 		'id' => 'AlphaSquad US1',
 		'type' => 'armedassault2oa',
 		'host' => '209.190.105.50:2322'

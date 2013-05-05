@@ -2,7 +2,7 @@
 
 https://github.com/firefly2442/phparma2serverstatus
 
-phparma2serverstatus queries an Arma2 server through PHP and displays information about the server
+phparma2serverstatus queries Arma2 and Arma3 servers through PHP and displays information about the server
 such as the map that is running, connected players, and other information.
 
 Setup:
@@ -37,7 +37,7 @@ This software is licensed under the GPL version 3.0 (see license.txt).
 
 GameQ is licensed under the GPL.
 
-Arma2 and associated images are copyrighted/trademarks of their respective owners.
+Arma2, Arma3, and associated images are copyrighted/trademarks of their respective owners.
 
 GeoIP Lookup provided by:
 

@@ -30,8 +30,12 @@ if (isset($_POST['query-servers']) && $_POST['query-servers'] == true)
 			//row one
 			echo "<div class='div-table-row'>\n";
 				echo "<div class='div-table-col div-left'>\n";
-					//Arma2 Logo
-					echo "<img src='images/arma2.jpg' alt='Arma2 Logo' title='Arma2 Logo' />\n";
+					//figure out Arma version for logo
+					if (isset($server['gamename']) && $server['gamename'] == "arma2oapc") {
+						echo "<img src='images/arma2.jpg' alt='Arma2 Logo' title='Arma2 Logo' />\n";
+					} else { //arma3pc
+						echo "<img src='images/arma3.jpg' alt='Arma3 Logo' title='Arma3 Logo' />\n";
+					}
 					if (GEOIP == "true") {
 						//Use GeoIP to determine country
 						echo "<a href='http://www.hostip.info'>";
