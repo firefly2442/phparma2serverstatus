@@ -30,6 +30,6 @@ define("GEOIP", "true");
 
 
 /* phparma2serverstatus version (you don't need to change this) */
-define("VERSION", "0.1");
+define("VERSION", "0.2");
 
 ?>
