@@ -21,16 +21,6 @@ $servers = array(
 		'id' => 'Kellys Heroes',
 		'type' => 'armedassault2oa',
 		'host' => '78.129.202.206:2302'
-	),
-	array(
-		'id' => 'Phoenix Soldiers',
-		'type' => 'armedassault2oa',
-		'host' => '72.26.196.58:2302'
-	),
-	array(
-		'id' => 'DayZ',
-		'type' => 'armedassault2oa',
-		'host' => '74.91.113.53:2302'
 	)
 );
 
