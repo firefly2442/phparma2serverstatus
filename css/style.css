@@ -50,3 +50,7 @@ a:hover   {color:#000099}
 	text-decoration: none;
 	font-weight: bold;
 }
+
+.underline {
+	text-decoration: underline;
+}
