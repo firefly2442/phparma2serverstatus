@@ -5,22 +5,22 @@ $servers = array(
 	array(
 		'id' => 'AlphaSquad Arma 3',
 		'type' => 'armedassault3',
-		'host' => '209.190.105.50:2302',
-	),
-	array(
-		'id' => 'AlphaSquad US1',
-		'type' => 'armedassault2oa',
-		'host' => '209.190.105.50:2322'
-	),
-	array(
-		'id' => 'AlphaSquad US2',
-		'type' => 'armedassault2oa',
-		'host' => '209.190.105.50:2312'
+		'host' => '209.190.50.178:2302',
 	),
 	array(
 		'id' => 'Kellys Heroes',
+		'type' => 'armedassault3',
+		'host' => '144.76.38.131:2402'
+	),
+	array(
+		'id' => 'TAW',
 		'type' => 'armedassault2oa',
-		'host' => '78.129.202.206:2302'
+		'host' => '64.31.29.82:2302'
+	),
+	array(
+		'id' => '7Cav',
+		'type' => 'armedassault3',
+		'host' => '108.61.31.86:2302'
 	)
 );
 
