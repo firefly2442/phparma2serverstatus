@@ -27,6 +27,10 @@ if (isset($_POST['query-servers']) && $_POST['query-servers'] == true)
 		//the server is online and running
 		if ($server['gq_online'])
 		{
+			//use var_dump for testing
+			//http://php.net/var_dump
+			//var_dump($server);
+
 			//row one
 			echo "<div class='div-table-row'>\n";
 				echo "<div class='div-table-col div-left'>\n";
