@@ -108,13 +108,14 @@ if (isset($_POST['query-servers']) && $_POST['query-servers'] == true)
 					{
 						echo "<div class='players' style='cursor: pointer' title='Show/Hide Player Listing'><div class='like-link'>Player Listing</div>\n";
 							echo "<table class='hide-players'>";
-							echo "<tr><td class='underline'>Player</td><td class='underline'>Score</td></tr>\n";
+							echo "<tr><td class='underline'>Player</td><td class='underline'>Score</td><td class='underline'>Deaths</td></tr>\n";
 							//Iterate through all the players
 							foreach ($server['players'] as $player)
 							{
 								echo "<tr>\n";
 									echo "<td>".$player['gq_name']."</td>\n";
 									echo "<td>".$player['gq_score']."</td>\n";
+									echo "<td>".$player['gq_deaths']."</td>\n";
 									//TODO: can we grab this other information?
 									//echo "<td>".$player['gq_ping']."</td>\n";
 								echo "</tr>\n";
