@@ -35,7 +35,7 @@ if (isset($_POST['query-servers']) && $_POST['query-servers'] == true)
 			echo "<div class='div-table-row'>\n";
 				echo "<div class='div-table-col div-left'>\n";
 					//figure out Arma version for logo
-					if (isset($server['gamename']) && $server['gamename'] == "arma2oapc") {
+					if (isset($server['gq_mod']) && $server['gq_mod'] == "arma2arrowpc") {
 						echo "<img src='images/arma2.jpg' alt='Arma2 Logo' title='Arma2 Logo' />\n";
 					} else { //arma3pc
 						echo "<img src='images/arma3.jpg' alt='Arma3 Logo' title='Arma3 Logo' />\n";
@@ -43,13 +43,17 @@ if (isset($_POST['query-servers']) && $_POST['query-servers'] == true)
 					if (GEOIP == "true") {
 						//Use GeoIP to determine country
 						echo "<a href='http://www.hostip.info'>";
-						echo "<img src='http://api.hostip.info/flag.php?ip=". $server['gq_address'] ."' alt='Country' title='Country' /></a>\n";
+						echo "<img src='http://api.hostip.info/flag.php?ip=". gethostbyname($server['gq_address']) ."' alt='Country' title='Country' /></a>\n";
 					}
 					//server OS (Windows/Linux)
 					if (isset($server['platform']) && $server['platform'] == "win") {
 						echo "<img src='images/windows_logo.jpg' alt='Server Runs Windows' title='Server Runs Windows' />\n";
 					} else {
 						echo "<img src='images/linux_logo.jpg' alt='Server Runs Linux' title='Server Runs Linux' />\n";
+					}
+					//display join link
+					if (isset($server['gq_joinlink'])) {
+						echo "<a href='".$server['gq_joinlink']."'>Join Server</a>";
 					}
 				echo "</div>\n";
 
@@ -133,13 +137,13 @@ if (isset($_POST['query-servers']) && $_POST['query-servers'] == true)
 					echo "<div class='details'>\n";
 					//Server details
 					echo "<p>Dedicated: ";
-					if ($server['gq_dedicated'] == 1) {
+					if ($server['gq_dedicated'] == 'd') {
 						echo "Yes</p>\n";
 					} else {
 						echo "No</p>\n";
 					}
 					echo "<p><div class='mods' style='cursor: pointer' title='Show/Hide Mod List'><div class='like-link'>Mods:</div>\n";
-					echo "<div class='hide-mods'>" . $server['mod'] . "</div></div></p>\n";
+					echo "<div class='hide-mods'>" . $server['modNames:1-2'] . "</div></div></p>\n";
 					echo "</div>\n";
 				echo "</div>\n";
 			echo "</div>\n";
