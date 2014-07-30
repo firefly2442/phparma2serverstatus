@@ -13,7 +13,7 @@ require_once("config.inc.php");
 
 	<link rel="shortcut icon" href="favicon.ico">
 
-	<title>PHP Arma2 Server Status</title>
+	<title>PHP Arma2/3 Server Status</title>
 
 
 	<script language="Javascript">
@@ -52,7 +52,7 @@ require_once("config.inc.php");
 </head>
 <body>
 
-<h2>PHP Arma2 Server Status</h2>
+<h2>PHP Arma2/3 Server Status</h2>
 
 <div class='server-data'>
 Loading...
