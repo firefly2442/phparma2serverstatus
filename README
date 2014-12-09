@@ -1,4 +1,5 @@
----PHP Arma2 Server Status---
+PHP Arma2 Server Status
+==============================
 
 https://github.com/firefly2442/phparma2serverstatus
 
@@ -8,11 +9,11 @@ such as the map that is running, connected players, and other information.
 Setup:
 
 Change directory (cd) into the phparma2serverstatus folder.
-Run: git submodule update --init
+Run: `git submodule update --init`
 
 This will grab the GameQ dependency submodule.
 
-Edit the config.inc.php file and specify the IP addresses and ports for the servers you
+Edit the `config.inc.php` file and specify the IP addresses and ports for the servers you
 want to query.  That's it.  Then just navigate to the page to see the results.
 
 
