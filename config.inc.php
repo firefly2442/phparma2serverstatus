@@ -1,7 +1,7 @@
 <?php
 
 //change this to reflect the servers that you want to query
-//Note: since GameSpy shut down, the 'type' should now be 'source'
+//Note: since GameSpy shut down, the 'type' should now be 'source' for Arma 2/3
 $servers = array(
 	array(
 		'id' => 'AlphaSquad Arma 3',
@@ -32,6 +32,11 @@ $servers = array(
 		'id' => 'United Operations Arma 3',
 		'type' => 'source',
 		'host' => 'arma3.unitedoperations.net:2402'
+	),
+	array(
+		'id' => 'Grey Matter DayZ Standalone',
+		'type' => 'dayz',
+		'host' => '68.232.177.173:27017'
 	)
 );
 

@@ -37,6 +37,8 @@ if (isset($_POST['query-servers']) && $_POST['query-servers'] == true)
 					//figure out Arma version for logo
 					if (isset($server['gq_mod']) && $server['gq_mod'] == "arma2arrowpc") {
 						echo "<img src='images/arma2.jpg' alt='Arma2 Logo' title='Arma2 Logo' />\n";
+					} else if (isset($server['gq_mod']) && $server['gq_mod'] == "dayz") {
+						echo "<img src='images/dayz.jpg' alt='DayZ Logo' title='DayZ Logo' />\n";
 					} else { //arma3pc
 						echo "<img src='images/arma3.jpg' alt='Arma3 Logo' title='Arma3 Logo' />\n";
 					}
@@ -126,6 +128,7 @@ if (isset($_POST['query-servers']) && $_POST['query-servers'] == true)
 									echo "<td>".$player['gq_deaths']."</td>\n";
 									//TODO: can we grab this other information?
 									//echo "<td>".$player['gq_ping']."</td>\n";
+									//time?...
 								echo "</tr>\n";
 							}
 							echo "</table>";
