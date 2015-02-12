@@ -3,7 +3,7 @@ PHP Arma2 Server Status
 
 https://github.com/firefly2442/phparma2serverstatus
 
-phparma2serverstatus queries Arma2 and Arma3 servers through PHP and displays information about the server
+phparma2serverstatus queries Arma2, Arma3, and DayZ servers through PHP and displays information about the server
 such as the map that is running, connected players, and other information.
 
 Setup:
