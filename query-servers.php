@@ -1,23 +1,19 @@
 <?php
 require_once("config.inc.php");
-require_once("gameq/GameQ.php");
+require_once("gameq/src/GameQ/Autoloader.php");
 
 if (isset($_POST['query-servers']) && $_POST['query-servers'] == true)
 {
 
 	// Call the class, and add your servers.
-	$gq = new GameQ();
+	$gq = \GameQ\GameQ::factory();
 	$gq->addServers($servers);
 
 	// You can optionally specify some settings
 	$gq->setOption('timeout', 3); //in seconds
 
-	// You can optionally specify some output filters,
-	// these will be applied to the results obtained.
-	$gq->setFilter('normalise'); //makes sure a fixed set of variables is always available
-
 	// Send requests, and parse the data
-	$results = $gq->requestData();
+	$results = $gq->process();
 
 
 	echo "<div class='div-table'>\n";
@@ -71,7 +67,7 @@ if (isset($_POST['query-servers']) && $_POST['query-servers'] == true)
 			echo "<div class='div-table-row'>\n";
 				echo "<div class='div-table-col div-left'>\n";
 					//IP address:port
-					echo $server['gq_address'] . ":" . $server['gq_port'];
+					echo $server['gq_address'] . ":" . $server['port'];
 				echo "</div>\n";
 
 				echo "<div class='div-table-col div-right'>\n";
@@ -84,7 +80,7 @@ if (isset($_POST['query-servers']) && $_POST['query-servers'] == true)
 			echo "<div class='div-table-row'>\n";
 				echo "<div class='div-table-col div-left'>\n";
 					//Mission
-					echo "Mission: " . $server['mission'];
+					echo "Mission: " . $server['game_descr'];
 				echo "</div>\n";
 
 				echo "<div class='div-table-col div-right'>\n";
@@ -118,15 +114,15 @@ if (isset($_POST['query-servers']) && $_POST['query-servers'] == true)
 					{
 						echo "<div class='players' style='cursor: pointer' title='Show/Hide Player Listing'><div class='like-link'>Player Listing</div>\n";
 							echo "<table class='hide-players'>";
-							echo "<tr><td class='underline'>Player</td><td class='underline'>Score</td><td class='underline'>Deaths</td></tr>\n";
+							echo "<tr><td class='underline'>Player</td><td class='underline'>Score</td></tr>\n";
 							//Iterate through all the players
 							foreach ($server['players'] as $player)
 							{
 								echo "<tr>\n";
 									echo "<td>".$player['gq_name']."</td>\n";
 									echo "<td>".$player['gq_score']."</td>\n";
-									echo "<td>".$player['gq_deaths']."</td>\n";
 									//TODO: can we grab this other information?
+									//echo "<td>".$player['gq_deaths']."</td>\n";
 									//echo "<td>".$player['gq_ping']."</td>\n";
 									//time?...
 								echo "</tr>\n";
@@ -146,8 +142,16 @@ if (isset($_POST['query-servers']) && $_POST['query-servers'] == true)
 						echo "No</p>\n";
 					}
 					echo "<p><div class='mods' style='cursor: pointer' title='Show/Hide Mod List'><div class='like-link'>Mods:</div>\n";
-					echo "<div class='hide-mods'>" . $server['modNames:1-2'] . "</div></div></p>\n";
-					echo "</div>\n";
+					//TODO: this really should be fixed by normalizing the variable name
+					//issue upstream with GameQ, see here: https://github.com/Austinb/GameQ/issues/246
+					if (isset($server['sigNames:0-1'])) {
+						echo "<div class='hide-mods'>" . $server['sigNames:0-1'] . "</div>\n";
+					} else if (isset($server['sigNames:0-2'])) {
+						echo "<div class='hide-mods'>" . $server['sigNames:0-2'] . "</div>\n";
+					} else {
+						echo "<div class='hide-mods'>No Mods</div>\n";
+					}
+					echo "</div></div></p>\n";
 				echo "</div>\n";
 			echo "</div>\n";
 
