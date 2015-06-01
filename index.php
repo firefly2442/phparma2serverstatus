@@ -9,7 +9,7 @@ require_once("config.inc.php");
 
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 
-	<script type="text/javascript" src="javascript/jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" src="javascript/jquery-2.1.4.min.js"></script>
 
 	<link rel="shortcut icon" href="favicon.ico">
 
