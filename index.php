@@ -16,7 +16,7 @@ require_once("config.inc.php");
 	<title>PHP Arma2/3 Server Status</title>
 
 
-	<script language="Javascript">
+	<script>
 	$(document).ready(function() {
 
 		//use asynchronous AJAX call via JQuery to query the servers in the backend
@@ -60,8 +60,10 @@ Loading...
 
 
 <br><hr>
-<center><a href="https://github.com/firefly2442/phparma2serverstatus">phparma2serverstatus</a>
-<br>Version: <?php echo VERSION;?></center>
+<div style="text-align: center;">
+<a href="https://github.com/firefly2442/phparma2serverstatus">phparma2serverstatus</a>
+<br>Version: <?php echo VERSION;?>
+</div>
 
 </body>
 </html>
