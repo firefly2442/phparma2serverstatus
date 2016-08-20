@@ -2,6 +2,16 @@
 require_once("config.inc.php");
 require_once("gameq/src/GameQ/Autoloader.php");
 
+
+function secondsToString($seconds) {
+	$hours = floor($seconds / 3600);
+	$mins = floor($seconds / 60 % 60);
+	$secs = floor($seconds % 60);
+
+	return $hours.":".$mins.":".$secs;
+}
+
+
 if (isset($_POST['query-servers']) && $_POST['query-servers'] == true)
 {
 
@@ -38,17 +48,19 @@ if (isset($_POST['query-servers']) && $_POST['query-servers'] == true)
 					} else { //arma3pc
 						echo "<img src='images/arma3.jpg' alt='Arma3 Logo' title='Arma3 Logo' />\n";
 					}
-					if (GEOIP == "true") {
+					/*if (GEOIP == "true") {
 						//Use GeoIP to determine country
-						echo "<a href='http://www.hostip.info'>";
-						echo "<img src='http://api.hostip.info/flag.php?ip=". gethostbyname($server['gq_address']) ."' alt='Country' title='Country' /></a>\n";
-					}
+						//TODO: look into public APIs
+					}*/
+
 					//server OS (Windows/Linux)
-					if (isset($server['platform']) && $server['platform'] == "win") {
+					//apparently this is no longer supported
+					//https://community.bistudio.com/wiki/Arma_3_ServerBrowserProtocol2
+					/*if (isset($server['platform']) && $server['platform'] == "win") {
 						echo "<img src='images/windows_logo.jpg' alt='Server Runs Windows' title='Server Runs Windows' />\n";
 					} else {
 						echo "<img src='images/linux_logo.jpg' alt='Server Runs Linux' title='Server Runs Linux' />\n";
-					}
+					}*/
 					//display join link
 					if (isset($server['gq_joinlink'])) {
 						echo "<a href='".$server['gq_joinlink']."'>Join Server</a>";
@@ -114,13 +126,14 @@ if (isset($_POST['query-servers']) && $_POST['query-servers'] == true)
 					{
 						echo "<div class='players' style='cursor: pointer' title='Show/Hide Player Listing'><div class='like-link'>Player Listing</div>\n";
 							echo "<table class='hide-players'>";
-							echo "<tr><td class='underline'>Player</td><td class='underline'>Score</td></tr>\n";
+							echo "<tr><td class='underline'>Player</td><td class='underline'>Score</td><td class='underline'>Time Played</td></tr>\n";
 							//Iterate through all the players
 							foreach ($server['players'] as $player)
 							{
 								echo "<tr>\n";
 									echo "<td>".$player['gq_name']."</td>\n";
 									echo "<td>".$player['gq_score']."</td>\n";
+									echo "<td>".secondsToString($player['gq_time'])."</td>\n";
 									//TODO: can we grab this other information?
 									//echo "<td>".$player['gq_deaths']."</td>\n";
 									//echo "<td>".$player['gq_ping']."</td>\n";
@@ -142,12 +155,18 @@ if (isset($_POST['query-servers']) && $_POST['query-servers'] == true)
 						echo "No</p>\n";
 					}
 					echo "<p><div class='mods' style='cursor: pointer' title='Show/Hide Mod List'><div class='like-link'>Mods:</div>\n";
-					//TODO: this really should be fixed by normalizing the variable name
-					//issue upstream with GameQ, see here: https://github.com/Austinb/GameQ/issues/246
-					if (isset($server['sigNames:0-1'])) {
-						echo "<div class='hide-mods'>" . $server['sigNames:0-1'] . "</div>\n";
-					} else if (isset($server['sigNames:0-2'])) {
-						echo "<div class='hide-mods'>" . $server['sigNames:0-2'] . "</div>\n";
+					//TODO: continue testing this via:
+					//https://github.com/Austinb/GameQ/issues/299
+					if (isset($server['mods'])) {
+						$mods = "";
+						foreach ($server['mods'] as $mod) {
+							if ($mods == "") {
+								$mods = $mod['name'];
+							} else {
+								$mods = $mods . ", " . $mod['name'];
+							}
+						}
+						echo "<div class='hide-mods'>" . $mods  . "</div>\n";
 					} else {
 						echo "<div class='hide-mods'>No Mods</div>\n";
 					}
