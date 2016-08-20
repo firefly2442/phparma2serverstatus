@@ -18,9 +18,9 @@ $servers = array(
 		'host' => '64.31.29.82:2402'
 	),
 	array(
-		'id' => 'S and S',
+		'id' => 'Arma2 OA Test',
 		'type' => 'armedassault2oa',
-		'host' => '167.114.119.176:2302'
+		'host' => '74.91.120.129:2312'
 	),
 	array(
 		'id' => 'United Operations Arma 3',
@@ -28,15 +28,16 @@ $servers = array(
 		'host' => 'arma3.unitedoperations.net:2402'
 	),
 	array(
-		'id' => 'Central US DayZ Standalone',
+		'id' => 'DayZ Test',
 		'type' => 'dayz',
-		'host' => '142.54.184.58:2302'
+		'host' => '45.59.69.210:2330'
 	)
 );
 
 
+//TODO: currently offline, looking into alternatives
 //change this to toggle querying geographic information based on the IP address
-define("GEOIP", "true");
+//define("GEOIP", "true");
 
 
 /* phparma2serverstatus version (you don't need to change this) */
