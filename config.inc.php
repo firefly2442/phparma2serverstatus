@@ -5,7 +5,7 @@ $servers = array(
 	array(
 		'id' => 'AlphaSquad Arma 3',
 		'type' => 'armedassault3',
-		'host' => '209.190.50.178:2302',
+		'host' => '207.182.138.242:2302',
 	),
 	array(
 		'id' => 'Kellys Heroes',
