@@ -28,9 +28,13 @@ $servers = array(
 		'host' => 'arma3.unitedoperations.net:2402'
 	),
 	array(
+		// https://github.com/Austinb/GameQ/wiki/Examples-v3#different-client-and-query-ports
 		'id' => 'DayZ Test',
 		'type' => 'dayz',
-		'host' => '45.59.69.210:2330'
+		'host' => '108.174.57.251:2302',
+		//'options' => [
+			//'query_port' => 6502,
+		//]
 	)
 );
 
