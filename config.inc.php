@@ -6,6 +6,9 @@ $servers = array(
 		'id' => 'AlphaSquad Arma 3',
 		'type' => 'armedassault3',
 		'host' => '207.182.138.242:2302',
+		'options' => [
+			'query_port' => 2303
+		]
 	),
 	array(
 		'id' => 'Kellys Heroes',
@@ -33,7 +36,7 @@ $servers = array(
 		'type' => 'dayz',
 		'host' => '108.174.57.251:2302',
 		//'options' => [
-			//'query_port' => 6502,
+			//'query_port' => 6502
 		//]
 	)
 );
