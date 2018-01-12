@@ -54,13 +54,12 @@ if (isset($_POST['query-servers']) && $_POST['query-servers'] == true)
 					}*/
 
 					//server OS (Windows/Linux)
-					//apparently this is no longer supported
 					//https://community.bistudio.com/wiki/Arma_3_ServerBrowserProtocol2
-					/*if (isset($server['platform']) && $server['platform'] == "win") {
+					if (isset($server['os']) && $server['os'] == "w") {
 						echo "<img src='images/windows_logo.jpg' alt='Server Runs Windows' title='Server Runs Windows' />\n";
 					} else {
 						echo "<img src='images/linux_logo.jpg' alt='Server Runs Linux' title='Server Runs Linux' />\n";
-					}*/
+					}
 					//display join link
 					if (isset($server['gq_joinlink'])) {
 						echo "<a href='".$server['gq_joinlink']."'>Join Server</a>";
