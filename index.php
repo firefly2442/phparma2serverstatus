@@ -26,6 +26,10 @@ require_once("config.inc.php");
 			type: "POST",
 			url: "query-servers.php",
 			data: datastring,
+			timeout: 10000,
+			error: function(xhr, status, error) {
+				$('.server-data').show().html('<p class="error">Failed to load server information. Please check config.inc.php and server availability.</p>');
+			},
 			success: function(data) {
 				//show information in our div
 				$('.server-data').show().html(data);
